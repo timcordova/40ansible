@@ -82,6 +82,7 @@ logger.addHandler(hdlr)
 logger.setLevel(logging.DEBUG)
 
 AVAILABLE_CONF = [
+    'license/status select',
     'system resource usage',
     'system vdom-resource',
     'alertemail setting',
