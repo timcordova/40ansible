@@ -5,7 +5,7 @@
   tasks:
     - name: get current config
       uri:
-        url: 'https://{{ ansible_host }}/api/v2/monitor/system/config/backup/?scope=global&amp;access_token={{ access_token }}'
+        url: 'https://{{ ansible_host }}/api/v2/monitor/system/config/backup/?vdom=root&scope=global&amp&access_token={{ access_token }}'
         return_content: yes
         validate_certs: no
       register: current_config
