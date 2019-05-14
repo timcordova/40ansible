@@ -1,9 +1,9 @@
 - hosts: localhost
 #  strategy: debug
   vars:
-   host:  "10.38.31.184"
+   host: "192.168.122.40"
    username: "admin"
-   password: "Password"
+   password: ""
    vdom: "root"
   tasks:
   - name: pass cli cmd ssh
@@ -12,7 +12,7 @@
      host:  "{{  host }}"  
      username: "{{  username}}"  
      password: "{{ password }}"
-     https: True
+     https: False
      commands: |
                execute update-now
                get system status

@@ -1,0 +1,14 @@
+- name: fortigate config backup
+  connection: local
+  hosts: fortigate
+ 
+  tasks:
+    - name: get current config
+      uri:
+        url: 'https://{{ ansible_host }}/api/v2/monitor/system/config/backup/?scope=global&amp;access_token={{ access_token }}'
+        return_content: yes
+        validate_certs: no
+      register: current_config
+ 
+    - name: write config to local file
+      local_action: copy content={{ current_config.content }} dest=./{{ inventory_hostname }}_{{ ansible_date_time.date }}.txt
